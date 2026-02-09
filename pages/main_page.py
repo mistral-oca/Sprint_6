@@ -20,3 +20,6 @@ class MainPage:
         self.wait.until(
             EC.element_to_be_clickable(L.YANDEX_LOGO)
         ).click()
+
+    def get_current_url(self):
+        return self.driver.current_url

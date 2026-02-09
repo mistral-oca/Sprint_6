@@ -9,4 +9,4 @@ class TestMainPage:
 
         page.click_scooter_logo()
 
-        assert driver.current_url == BASE_URL
+        assert page.get_current_url() == BASE_URL
