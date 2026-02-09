@@ -23,3 +23,20 @@ class MainPage:
 
     def get_current_url(self):
         return self.driver.current_url
+
+    def get_current_window(self):
+        return self.driver.current_window_handle
+
+    def switch_to_new_window(self, original_window):
+        self.wait.until(EC.number_of_windows_to_be(2))
+        new_window = [
+            window for window in self.driver.window_handles
+            if window != original_window
+        ][0]
+        self.driver.switch_to.window(new_window)
+
+    def wait_for_dzen_page(self):
+        self.wait.until(EC.url_contains("dzen.ru"))
+
+    def get_current_url(self):
+        return self.driver.current_url
